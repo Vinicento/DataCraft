@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(10,10,10,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f1ede4"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- top bar -->
+  <rect x="0" y="0" width="1200" height="48" fill="#0a0a0a"/>
+  <text x="40" y="32" font-family="'JetBrains Mono', monospace" font-size="18"
+        fill="#f1ede4" letter-spacing="2">// FLIPIAK SZCZYPUAA  ·  USAUGI INFORMATYCZNE  ·  2026</text>
+
+  <!-- mark -->
+  <rect x="56" y="120" width="120" height="120" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="4"/>
+  <text x="116" y="200" font-family="'JetBrains Mono', monospace" font-size="56" font-weight="700"
+        text-anchor="middle" fill="#d4ff3a">FS</text>
+
+  <!-- headline -->
+  <text x="56" y="340" font-family="'Space Grotesk', sans-serif" font-size="92" font-weight="700"
+        fill="#0a0a0a" letter-spacing="-2">BUDUJEMY CYFROWE</text>
+  <text x="56" y="430" font-family="'Space Grotesk', sans-serif" font-size="92" font-weight="700"
+        fill="#0a0a0a" letter-spacing="-2">NARZDZIA, KTÓRE</text>
+
+  <!-- highlighted word -->
+  <g transform="translate(56,460)">
+    <rect x="0" y="0" width="360" height="100" fill="#d4ff3a" stroke="#0a0a0a" stroke-width="4"/>
+    <rect x="8" y="8" width="360" height="100" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+    <text x="20" y="78" font-family="'Space Grotesk', sans-serif" font-size="92" font-weight="700"
+          fill="#0a0a0a" letter-spacing="-2">DZIAAAJ</text>
+  </g>
+  <text x="450" y="538" font-family="'Space Grotesk', sans-serif" font-size="92" font-weight="700"
+        fill="#0a0a0a" letter-spacing="-2">.</text>
+
+  <!-- tags -->
+  <g font-family="'JetBrains Mono', monospace" font-size="22" fill="#0a0a0a">
+    <rect x="850" y="120" width="290" height="50" fill="#0a0a0a"/>
+    <text x="995" y="153" text-anchor="middle" fill="#d4ff3a">APLIKACJE · AI · GRY</text>
+    <rect x="850" y="180" width="290" height="50" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+    <text x="995" y="213" text-anchor="middle">GRAFIKA 3D · 2D · DRUK 3D</text>
+    <rect x="850" y="240" width="290" height="50" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+    <text x="995" y="273" text-anchor="middle">AUTOMATYZACJE</text>
+  </g>
+
+  <!-- bottom bar -->
+  <rect x="0" y="600" width="1200" height="30" fill="#0a0a0a"/>
+  <text x="40" y="621" font-family="'JetBrains Mono', monospace" font-size="14"
+        fill="#f1ede4" letter-spacing="2">// PRACOWNIA CYFROWA  ·  KOD &amp; PIKSEL &amp; AUTOMAT  ·  PL/EN</text>
+</svg>
