@@ -228,6 +228,7 @@ body {
   box-shadow: 4px 4px 0 0 var(--ink);
   border: 2px solid var(--ink);
   display: inline-block;
+  color: var(--dark-bg);
 }
 
 /* ---------- BUTTONS ---------- */
