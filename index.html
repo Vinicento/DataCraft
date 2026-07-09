@@ -170,16 +170,21 @@
     </header>
 
     <div class="portfolio__grid">
-      <a class="portfolio__item" href="https://mentorjezykowy.pl/" target="_blank" rel="noopener noreferrer">
-        <div class="portfolio__image">
-          <img src="../images/mentor.png" alt="Projekt strony internetowej" loading="lazy">
-        </div>
+      <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="https://mentorjezykowy.pl/">
+  <div class="portfolio__image portfolio__preview">
+    <iframe
+      src="https://mentorjezykowy.pl/"
+      title="Podgląd strony Mentor Językowy"
+      loading="lazy"
+      tabindex="-1">
+    </iframe>
+  </div>
 
-        <div class="portfolio__content">
-          <h3>Aplikacja webowa</h3>
-          <p>Responsywna strona z mocną identyfikacją wizualną, zintegrowanym systemem płatności oraz bazą danych.</p>
-        </div>
-      </a>
+  <div class="portfolio__content">
+    <h3>Aplikacja webowa</h3>
+    <p>Responsywna strona z mocną identyfikacją wizualną, zintegrowanym systemem płatności oraz bazą danych.</p>
+  </div>
+</button>
 
       <a class="portfolio__item" href="https://apps.microsoft.com/detail/9n2g4152vn61?hl=pl-PL&gl=PL" target="_blank" rel="noopener noreferrer">
         <div class="portfolio__image">
@@ -291,12 +296,13 @@
       <span class="prototype-modal__title">Podgląd prototypu strony</span>
 
       <a
-        class="prototype-modal__open"
-        href="prototyp-strony-firmowej-preview.html"
-        target="_blank"
-        rel="noopener noreferrer">
-        Otwórz w nowej karcie
-      </a>
+  class="prototype-modal__open"
+  id="prototypeModalOpen"
+  href="#"
+  target="_blank"
+  rel="noopener noreferrer">
+  Otwórz w nowej karcie
+</a>
 
       <button class="prototype-modal__close" type="button" data-close-prototype aria-label="Zamknij">×</button>
     </div>
@@ -334,6 +340,7 @@
   (function () {
     const modal = document.getElementById("prototypeModal");
     const modalFrame = document.getElementById("prototypeModalFrame");
+    const modalOpen = document.getElementById("prototypeModalOpen");
     const prototypeCards = document.querySelectorAll("[data-prototype]");
     const closeButtons = document.querySelectorAll("[data-close-prototype]");
 
@@ -341,6 +348,11 @@
 
     function openPrototype(url) {
       modalFrame.src = url;
+
+      if (modalOpen) {
+        modalOpen.href = url;
+      }
+
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("prototype-modal-open");
@@ -351,6 +363,10 @@
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("prototype-modal-open");
       modalFrame.src = "";
+
+      if (modalOpen) {
+        modalOpen.href = "#";
+      }
     }
 
     prototypeCards.forEach((card) => {
