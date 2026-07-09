@@ -716,16 +716,23 @@ body.nav-open {
 
 .portfolio__preview {
   position: relative;
+  display: block;
   background: var(--paper);
   overflow: hidden;
 }
 
 .portfolio__preview iframe {
-  width: 1440px;
-  height: 980px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 312.5%;
+  height: 312.5%;
+
   border: 0;
   transform: scale(0.32);
   transform-origin: top left;
+
   pointer-events: none;
   background: var(--paper);
 }
