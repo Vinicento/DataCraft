@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototyp strony firmowej</title>
+
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --paper: #ffffff;
+      --text: #17202a;
+      --muted: #667085;
+      --line: #d9dee7;
+      --navy: #0b1f3a;
+      --accent: #8a6f3d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .top {
+      background: var(--navy);
+      color: rgba(255,255,255,.8);
+      font-size: 12px;
+      padding: 10px 48px;
+    }
+
+    .header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 86px 48px;
+    }
+
+    .label {
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .buttons {
+      margin-top: 36px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      padding: 0 20px;
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn.secondary {
+      background: var(--paper);
+      color: var(--navy);
+    }
+
+    section {
+      padding: 72px 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .section-copy {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .metric {
+      padding: 28px 24px;
+      border-right: 1px solid var(--line);
+      min-height: 150px;
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--navy);
+      font-size: 34px;
+      letter-spacing: -.04em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      min-height: 260px;
+    }
+
+    .card small {
+      display: block;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .cta {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .cta h2 {
+      color: #fff;
+    }
+
+    .cta p {
+      max-width: 680px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+    }
+
+    .footer {
+      background: #07182d;
+      color: rgba(255,255,255,.68);
+      padding: 32px 48px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .top,
+      .header,
+      .hero,
+      section,
+      .footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .header {
+        display: block;
+      }
+
+      .nav {
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">Profesjonalna strona firmowa</div>
+
+  <header class="header">
+    <div class="brand">Twoja Firma</div>
+    <nav class="nav">
+      <span>O firmie</span>
+      <span>Usługi</span>
+      <span>Realizacje</span>
+      <span>Kontakt</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="label">Szablon strony firmowej</div>
+      <h1>Strona Twojej Firmy w nowoczesnym, przejrzystym stylu.</h1>
+      <p class="lead">
+        Krótki opis tego, czym zajmuje się firma, komu pomaga i jaką wartość daje klientom.
+        Ten tekst powinien szybko wyjaśniać ofertę i prowadzić użytkownika do kontaktu.
+      </p>
+
+      <div class="buttons">
+        <a href="#" class="btn">Zobacz ofertę</a>
+        <a href="#" class="btn secondary">Dowiedz się więcej</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="label">O firmie</div>
+          <h2>Krótki tytuł sekcji opisującej Twoją firmę.</h2>
+        </div>
+        <p class="section-copy">
+          W tym miejscu znajduje się zwięzły opis firmy, jej specjalizacji oraz sposobu pracy.
+          Tekst powinien być prosty, konkretny i zrozumiały dla klienta.
+        </p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <strong>10+</strong>
+          <span>Liczba lat doświadczenia albo inny ważny wynik firmy.</span>
+        </div>
+        <div class="metric">
+          <strong>250+</strong>
+          <span>Liczba klientów, projektów albo zakończonych współprac.</span>
+        </div>
+        <div class="metric">
+          <strong>4</strong>
+          <span>Główne obszary usług, działy firmy albo specjalizacje.</span>
+        </div>
+        <div class="metric">
+          <strong>98%</strong>
+          <span>Poziom satysfakcji, terminowości albo jakości obsługi.</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="label">Usługi</div>
+          <h2>Przejrzysta prezentacja oferty firmy.</h2>
+        </div>
+        <p class="section-copy">
+          W tej części klient powinien szybko zobaczyć, co firma oferuje,
+          dla kogo jest dana usługa i czym różnią się poszczególne warianty.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <small>Usługa</small>
+          <h3>Usługa podstawowa</h3>
+          <p>Krótki opis najważniejszej usługi firmy oraz wartości dla klienta.</p>
+        </article>
+
+        <article class="card">
+          <small>Usługa</small>
+          <h3>Usługa rozszerzona</h3>
+          <p>Opis bardziej kompleksowej współpracy, wdrożenia albo obsługi.</p>
+        </article>
+
+        <article class="card">
+          <small>Usługa</small>
+          <h3>Stała obsługa</h3>
+          <p>Opis długoterminowej współpracy, wsparcia lub abonamentu.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="label">Kontakt</div>
+      <h2>Zachęć klienta do wysłania zapytania.</h2>
+      <p>
+        Krótki tekst końcowy, który wyjaśnia, co użytkownik powinien zrobić dalej:
+        napisać wiadomość, umówić rozmowę albo poprosić o indywidualną ofertę.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Twoja Firma — krótki opis działalności.
+  </footer>
+</body>
+</html>

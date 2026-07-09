@@ -160,7 +160,7 @@
     </section>
 
 
-    <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+  <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
   <div class="container">
     <header class="section__head">
       <p class="eyebrow"><span class="dot"></span> Portfolio</p>
@@ -202,6 +202,22 @@
           <p>Modele do animacji oraz druku 3D.</p>
         </div>
       </a>
+
+      <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="prototyp-strony-firmowej-preview.html">
+        <div class="portfolio__image portfolio__preview" aria-hidden="true">
+          <iframe
+            src="prototyp-strony-firmowej-preview.html"
+            title="Podgląd prototypu strony firmowej"
+            loading="lazy"
+            tabindex="-1">
+          </iframe>
+        </div>
+
+        <div class="portfolio__content">
+          <h3>Prototyp strony firmowej</h3>
+          <p>Interaktywny podgląd gotowego szablonu strony. Kliknij, aby zobaczyć projekt w dużym oknie.</p>
+        </div>
+      </button>
     </div>
   </div>
 </section>
@@ -266,6 +282,27 @@
 
   </main>
 
+  <div class="prototype-modal" id="prototypeModal" aria-hidden="true">
+  <div class="prototype-modal__backdrop" data-close-prototype></div>
+
+  <div class="prototype-modal__dialog" role="dialog" aria-modal="true" aria-label="Podgląd prototypu strony">
+    <div class="prototype-modal__bar">
+      <span class="prototype-modal__title">Podgląd prototypu strony</span>
+      <a class="prototype-modal__open" href="prototyp-strony-firmowej-preview.html" target="_blank" rel="noopener noreferrer">
+        Otwórz w nowej karcie
+      </a>
+      <button class="prototype-modal__close" type="button" data-close-prototype aria-label="Zamknij">×</button>
+    </div>
+
+    <iframe
+      class="prototype-modal__frame"
+      id="prototypeModalFrame"
+      src=""
+      title="Pełny podgląd prototypu strony">
+    </iframe>
+  </div>
+</div>
+
   <!-- ============== FOOTER ============== -->
   <footer class="footer">
     <div class="container footer__inner">
@@ -283,6 +320,48 @@
       </p>
     </div>
   </footer>
+
+  <!-- ============== PORTFOLIO IFRAME MODAL SCRIPT ============== -->
+<script>
+  (function () {
+    const modal = document.getElementById("prototypeModal");
+    const modalFrame = document.getElementById("prototypeModalFrame");
+    const prototypeCards = document.querySelectorAll("[data-prototype]");
+    const closeButtons = document.querySelectorAll("[data-close-prototype]");
+
+    if (!modal || !modalFrame || !prototypeCards.length) return;
+
+    function openPrototype(url) {
+      modalFrame.src = url;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("prototype-modal-open");
+    }
+
+    function closePrototype() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("prototype-modal-open");
+      modalFrame.src = "";
+    }
+
+    prototypeCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        openPrototype(card.dataset.prototype);
+      });
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", closePrototype);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closePrototype();
+      }
+    });
+  })();
+</script>
 
   <script src="script.js" defer></script>
 </body>
