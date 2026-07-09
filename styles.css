@@ -670,7 +670,7 @@ body.nav-open {
 }
 
 .portfolio__image {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   border-bottom: 2px solid var(--ink);
   background: transparent;
   overflow: hidden;
@@ -683,7 +683,7 @@ body.nav-open {
 .portfolio__image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -712,6 +712,7 @@ body.nav-open {
   -webkit-appearance: none;
   text-align: left;
   font: inherit;
+  padding:0;
 }
 
 .portfolio__preview {
@@ -721,20 +722,33 @@ body.nav-open {
   overflow: hidden;
 }
 
+/* iframe zachowuje się jak cover dla obrazka */
 .portfolio__preview iframe {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
 
-  width: 312.5%;
-  height: 312.5%;
+  width: 360%;
+  height: 360%;
 
   border: 0;
-  transform: scale(0.32);
-  transform-origin: top left;
+  transform: translate(-50%, -50%) scale(0.32);
+  transform-origin: center center;
 
   pointer-events: none;
   background: var(--paper);
+}
+
+.portfolio__item--external {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: left;
+  font: inherit;
+}
+
+.portfolio__item--external .portfolio__preview::after {
+  content: "Otwórz stronę";
 }
 
 .portfolio__preview::after {
@@ -859,13 +873,17 @@ body.prototype-modal-open {
   }
 
   .portfolio__preview iframe {
-    transform: scale(0.26);
+    width: 420%;
+    height: 420%;
+    transform: translate(-50%, -50%) scale(0.26);
   }
 }
 
 @media (max-width: 620px) {
   .portfolio__preview iframe {
-    transform: scale(0.21);
+    width: 520%;
+    height: 520%;
+    transform: translate(-50%, -50%) scale(0.21);
   }
 
   .portfolio__preview::after {
@@ -891,4 +909,22 @@ body.prototype-modal-open {
   .prototype-modal__open {
     flex: 1;
   }
+}
+
+
+.portfolio__image--full-height {
+  aspect-ratio: auto;
+  height: auto;
+  min-height: 0;
+  display: block;
+  overflow: visible;
+  background: var(--paper);
+}
+
+.portfolio__image--full-height img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: unset;
+  object-position: unset;
 }

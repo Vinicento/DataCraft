@@ -170,59 +170,99 @@
     </header>
 
     <div class="portfolio__grid">
-      <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="https://mentorjezykowy.pl/">
-  <div class="portfolio__image portfolio__preview">
-    <iframe
-      src="https://mentorjezykowy.pl/"
-      title="Podgląd strony Mentor Językowy"
-      loading="lazy"
-      tabindex="-1">
-    </iframe>
+
+<a class="portfolio__item" href="https://mentorjezykowy.pl/" target="_blank" rel="noopener noreferrer">
+  <div class="portfolio__image portfolio__image--screenshot">
+    <img src="../images/mentor_miniature.png" alt="Miniatura strony Mentor Językowy" loading="lazy">
   </div>
 
   <div class="portfolio__content">
     <h3>Aplikacja webowa</h3>
     <p>Responsywna strona z mocną identyfikacją wizualną, zintegrowanym systemem płatności oraz bazą danych.</p>
   </div>
-</button>
+</a>
 
-      <a class="portfolio__item" href="https://apps.microsoft.com/detail/9n2g4152vn61?hl=pl-PL&gl=PL" target="_blank" rel="noopener noreferrer">
-        <div class="portfolio__image">
-          <img src="../images/panel.png" alt="Projekt aplikacji webowej" loading="lazy">
-        </div>
+<a class="portfolio__item" href="https://apps.microsoft.com/detail/9n2g4152vn61?hl=pl-PL&gl=PL" target="_blank" rel="noopener noreferrer">
+  <div class="portfolio__image portfolio__image--screenshot">
+    <img src="./images/panel_miniature.png" alt="Miniatura aplikacji Panel Treningowy" loading="lazy">
+  </div>
 
-        <div class="portfolio__content">
-          <h3>Aplikacja desktopowa</h3>
-          <p>Panel użytkownika, gry edukacyjne.</p>
-        </div>
-      </a>
+  <div class="portfolio__content">
+    <h3>Aplikacja desktopowa</h3>
+    <p>Panel użytkownika, gry edukacyjne.</p>
+  </div>
+</a>
 
-      <a class="portfolio__item">
-        <div class="portfolio__image">
-          <img src="../images/sailor.png" alt="Projekt grafiki 3D" loading="lazy">
-        </div>
+<a class="portfolio__item">
+  <div class="portfolio__image" style="background: var(--paper);">
+    <img
+      src="./images/sailor.png"
+      alt="Projekt grafiki 3D"
+      loading="lazy"
+      style="
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+        padding: 1rem;
+      ">
+  </div>
 
-        <div class="portfolio__content">
-          <h3>Grafika 3D</h3>
-          <p>Modele do animacji oraz druku 3D.</p>
-        </div>
-      </a>
+  <div class="portfolio__content">
+    <h3>Grafika 3D</h3>
+    <p>Modele do animacji oraz druku 3D.</p>
+  </div>
+</a>
 
       <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="prototyp-strony-firmowej-preview.html">
         <div class="portfolio__image portfolio__preview">
           <iframe
             src="prototyp-strony-firmowej-preview.html"
-            title="Podgląd prototypu strony firmowej"
+            title="Podgląd szablonu strony firmowej"
             loading="lazy"
             tabindex="-1">
           </iframe>
         </div>
 
         <div class="portfolio__content">
-          <h3>Prototyp strony firmowej</h3>
+          <h3>Szablon strony firmowej</h3>
           <p>Interaktywny podgląd gotowego szablonu strony. Kliknij, aby zobaczyć projekt w dużym oknie.</p>
         </div>
       </button>
+
+
+        <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="prototyp-blog.html">
+        <div class="portfolio__image portfolio__preview">
+          <iframe
+            src="prototyp-blog.html"
+            title="Podgląd prototypu bloga"
+            loading="lazy"
+            tabindex="-1">
+          </iframe>
+        </div>
+
+        <div class="portfolio__content">
+          <h3>Szablon bloga</h3>
+          <p>Interaktywny podgląd gotowego szablonu strony. Kliknij, aby zobaczyć projekt w dużym oknie.</p>
+        </div>
+      </button>
+
+        <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="prototyp-strona.html">
+        <div class="portfolio__image portfolio__preview">
+          <iframe
+            src="prototyp-strona.html"
+            title="Podgląd prototypu strony landingowej"
+            loading="lazy"
+            tabindex="-1">
+          </iframe>
+        </div>
+
+        <div class="portfolio__content">
+          <h3>Szablon strony landingowej</h3>
+          <p>Interaktywny podgląd gotowego szablonu strony. Kliknij, aby zobaczyć projekt w dużym oknie.</p>
+        </div>
+      </button>
+
     </div>
   </div>
 </section>
@@ -291,9 +331,9 @@
 <div class="prototype-modal" id="prototypeModal" aria-hidden="true">
   <div class="prototype-modal__backdrop" data-close-prototype></div>
 
-  <div class="prototype-modal__dialog" role="dialog" aria-modal="true" aria-label="Podgląd prototypu strony">
+  <div class="prototype-modal__dialog" role="dialog" aria-modal="true" aria-label="Podgląd szablonu">
     <div class="prototype-modal__bar">
-      <span class="prototype-modal__title">Podgląd prototypu strony</span>
+      <span class="prototype-modal__title">Podgląd szablonu</span>
 
       <a
   class="prototype-modal__open"
@@ -311,7 +351,7 @@
       class="prototype-modal__frame"
       id="prototypeModalFrame"
       src=""
-      title="Pełny podgląd prototypu strony">
+      title="Pełny podgląd szablonu">
     </iframe>
   </div>
 </div>
@@ -383,6 +423,19 @@
       if (event.key === "Escape" && modal.classList.contains("is-open")) {
         closePrototype();
       }
+    });
+  })();
+</script>
+
+  <script>
+  (function () {
+    const externalCards = document.querySelectorAll("[data-open-url]");
+
+    externalCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const url = card.dataset.openUrl;
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
     });
   })();
 </script>
