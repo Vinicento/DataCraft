@@ -204,7 +204,7 @@
       </a>
 
       <button class="portfolio__item portfolio__item--prototype" type="button" data-prototype="prototyp-strony-firmowej-preview.html">
-        <div class="portfolio__image portfolio__preview" aria-hidden="true">
+        <div class="portfolio__image portfolio__preview">
           <iframe
             src="prototyp-strony-firmowej-preview.html"
             title="Podgląd prototypu strony firmowej"
@@ -282,15 +282,22 @@
 
   </main>
 
-  <div class="prototype-modal" id="prototypeModal" aria-hidden="true">
+  <!-- ============== PROTOTYPE MODAL ============== -->
+<div class="prototype-modal" id="prototypeModal" aria-hidden="true">
   <div class="prototype-modal__backdrop" data-close-prototype></div>
 
   <div class="prototype-modal__dialog" role="dialog" aria-modal="true" aria-label="Podgląd prototypu strony">
     <div class="prototype-modal__bar">
       <span class="prototype-modal__title">Podgląd prototypu strony</span>
-      <a class="prototype-modal__open" href="prototyp-strony-firmowej-preview.html" target="_blank" rel="noopener noreferrer">
+
+      <a
+        class="prototype-modal__open"
+        href="prototyp-strony-firmowej-preview.html"
+        target="_blank"
+        rel="noopener noreferrer">
         Otwórz w nowej karcie
       </a>
+
       <button class="prototype-modal__close" type="button" data-close-prototype aria-label="Zamknij">×</button>
     </div>
 
@@ -322,6 +329,7 @@
   </footer>
 
   <!-- ============== PORTFOLIO IFRAME MODAL SCRIPT ============== -->
+<!-- ============== PORTFOLIO IFRAME MODAL SCRIPT ============== -->
 <script>
   (function () {
     const modal = document.getElementById("prototypeModal");
